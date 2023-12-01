@@ -1,0 +1,2 @@
+obj\Debug\net7.0\Protos/ArtistService.cs \
+obj\Debug\net7.0\Protos/ArtistServiceGrpc.cs: Protos/ArtistService.proto

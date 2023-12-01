@@ -1,0 +1,83 @@
+﻿@page "/CreateAccount"
+@using HttpClients.ClientImplementations
+@using Domain.DTOs
+@inject IUserService UserService;
+@inject IArtistService ArtistService;
+
+<div class="register col-12 col-lg-8">
+    <div class="register-hello col-12 col-lg-6">
+        <p>Welcome!</p>
+        <b>Join our community!</b>
+        @if (_registerAsUser)
+        {
+            <a>Sign up as Customer and let's get started!</a>
+        }
+        else
+        {
+            <a>Sign up as Food Seller and let's get started!</a>
+        }
+    </div>
+    <div class="register-action col-12 col-lg-6 align-items-center">
+        <div class="col-8 col-lg-12">
+            <input class="register-field" placeholder="Name" type="text" @bind="_name" @bind:event="oninput"/>
+        </div>
+        <div class="col-8 col-lg-12">
+            <input class="register-field" placeholder="Email" type="email" @bind="_email" @bind:event="oninput"/>
+        </div>
+        <div class="col-8 col-lg-12">
+            <input class="register-field" placeholder="Password" type="password" @bind="_password" @bind:event="oninput"/>
+        </div>
+        @if (!string.IsNullOrEmpty(_errorMessage))
+        {
+            <label class="register-field" style="color: red">@_errorMessage</label>
+        }
+        <div class="col-8 col-lg-12">
+            <button @onclick="Register" class="register-button">Sign Up</button>
+        </div>
+        <div class="continue col-8 col-lg-12">
+            @if (_registerAsUser)
+            {
+                <div class="continue-text">Or continue as Artist</div>
+            }
+            else
+            {
+                <div class="continue-text">Or continue as User</div>
+            }
+            <div class="col-4">
+                <button class="continue-button" @onclick="() => _registerAsUser = !_registerAsUser">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _name = "";
+    private string _email = "";
+    private string _password = "";
+    private string _errorMessage = "";
+    private bool _registerAsUser = true;
+    
+    private async Task Register()
+    {
+        _errorMessage = "";
+        try
+        {
+            if (_registerAsUser)
+            {
+                await UserService.CreateAsync(new UserCreationDTO(_name, _email, _password, ""));
+            }
+            else
+            {
+                await ArtistService.CreateAsync(new UserCreationDTO(_name, _email, _password, ""));
+            }
+            _name = "";
+            _email = "";
+            _password = "";
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            _errorMessage = e.Message;
+        }
+    }
+}

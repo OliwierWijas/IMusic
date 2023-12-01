@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "YVxVLNNBeAZ41nLO8VRD7zxLGHWWhNWj1sanl3WYlzr982o/81OmtU4vlaBiW317o9Br4GO+uYxK2FV6yXH1xw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\oliwi\\RiderProjects\\App\\Application\\Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\oliwi\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
+    "C:\\Users\\oliwi\\.nuget\\packages\\grpc.core\\2.46.6\\grpc.core.2.46.6.nupkg.sha512",
+    "C:\\Users\\oliwi\\.nuget\\packages\\grpc.core.api\\2.59.0\\grpc.core.api.2.59.0.nupkg.sha512",
+    "C:\\Users\\oliwi\\.nuget\\packages\\grpc.net.client\\2.59.0\\grpc.net.client.2.59.0.nupkg.sha512",
+    "C:\\Users\\oliwi\\.nuget\\packages\\grpc.net.common\\2.59.0\\grpc.net.common.2.59.0.nupkg.sha512",
+    "C:\\Users\\oliwi\\.nuget\\packages\\grpc.tools\\2.59.0\\grpc.tools.2.59.0.nupkg.sha512",
+    "C:\\Users\\oliwi\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\oliwi\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
+  "logs": []
+}

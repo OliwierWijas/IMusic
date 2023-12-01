@@ -1,0 +1,18 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package artist;
+option csharp_namespace = "GrpcClient";
+
+message CreateArtistRequest
+{
+  string name = 1;
+  string email = 2;
+  string password = 3;
+  string profilePicture = 4;
+}
+
+message ArtistEmptyResponse {}
+
+service ArtistService {
+  rpc createAccount(CreateArtistRequest) returns (ArtistEmptyResponse);
+}

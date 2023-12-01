@@ -1,0 +1,53 @@
+﻿@page "/Login"
+@inject NavigationManager NavMgr
+
+<div class="login col-12 col-lg-6">
+    <div class="login-hello col-12">
+        <p>Welcome!</p>
+        <b>Join our community!</b>
+        <a>Sign up if you're not a member!</a>
+    </div>
+    <div class="login-action col-12 align-items-center">
+        <div class="col-12 col-lg-8">
+            <input class="login-field" placeholder="Email" type="text" @bind="_email"/>
+        </div>
+        <div class="col-12 col-lg-8">
+            <input class="login-field" placeholder="Password" type="password" @bind="_password"/>
+        </div>
+        @if (!string.IsNullOrEmpty(_errorMessage))
+        {
+            <label class="login-field" style="color: red">@_errorMessage</label>
+        }
+        <div class="col-4">
+            <button class="login-button" @onclick="LoginAsync">Login</button>
+        </div>
+        <div class="register col-12 col-lg-8">
+            <div class="no-account">Don't have an account yet?</div>
+            <div class="col-4">
+                <button class="register-button" @onclick="() => NavMgr.NavigateTo(_uri)">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _email = "";
+    private string _password ="";
+    private string _errorMessage = "";
+    private readonly string _uri = "/CreateAccount";
+    
+    private async Task LoginAsync()
+    {
+        _errorMessage = "";
+        try
+        {
+            //await AuthService.LoginAsync(_email, _password);
+            NavMgr.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            _errorMessage = e.Message;
+        }
+    }
+}
